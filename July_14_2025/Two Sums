@@ -4,3 +4,12 @@ class Solution(object):
             for j in range (i+1, len(nums)):
                 if nums[i]+nums[j] == target:
                     return[i,j]
+#using hashmaps
+
+class Solution(object):
+    def twoSum(self, nums, target):
+        num_map = {}
+        for i, num in enumerate(nums):
+            diff = target - num
+            if diff in num_map:
+                return [num_map[diff], i]
