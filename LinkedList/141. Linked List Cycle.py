@@ -1,6 +1,6 @@
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        seen = set()
+        seen = set() #set is a built-in type in python that does not allow duplicates
         curr = head
         
         while curr:
@@ -12,4 +12,7 @@ class Solution:
             
            
         return False
+    
+# Time Complexity: O(n)
+# Space Complexity: O(n)
         
