@@ -9,11 +9,7 @@ class Solution:
 
         if val in values:
             values.remove(val)
-
-    
-
-
-        # Step 3: rebuild linked list from values
+ # Step 3: rebuild linked list from values
         dummy = ListNode(0)
         curr = dummy
         for v in values:
@@ -25,3 +21,26 @@ class Solution:
 
         # Step 4: return the new head
         return dummy.next
+
+# Time Complexity: O(n)
+# Space Complexity: O(n)
+
+
+# Approach 2: In-Place Deletion
+class Solution:
+    def deleteNode(self, node: ListNode) -> None:
+        """
+        Deletes the given node (except the tail) in a singly linked list.
+        NOT given the head of the list.
+        """
+        node.val = node.next.val
+        # TODO 1: Copy the value from the next node into the current node
+        
+
+        node.next = node.next.next
+        pass 
+        # TODO 2: Skip over the next node
+        
+
+
+       
