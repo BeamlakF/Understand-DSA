@@ -1,28 +1,23 @@
 class Solution:
     def reverseBetween(self, head: Optional[ListNode], m: int, n: int) -> Optional[ListNode]:
-        # Step 0: dummy node to simplify edge cases
+        if not head or m == n:
+            return head
+
         dummy = ListNode(0)
         dummy.next = head
         prev = dummy
 
-        # step 1: move prev to the node just before position m
-        for _ in range(m-1):
+        # Step 1: Move prev to node before position m
+        for _ in range(m - 1):
             prev = prev.next
-        # Now prev is at (m-1)th node
 
-        # Step 2: reverse the sublist from m to n
+        # Step 2: Reverse the sublist
         curr = prev.next
-        tail = curr
-        for _ in range(n-m):
-            next_temp = curr.next
-            curr.next = next_temp.next
-            next_temp.next =prev.next
-            prev.next = next_temp
+        for _ in range(n - m):
+            temp = curr.next
+            curr.next = temp.next
+            temp.next = prev.next
+            prev.next = temp
 
-     
-        # Step 3: reconnect reversed sublist with prev and the remaining list
-        tail.next = curr.next
-        curr.next = next_temp
-
-        # Step 4: return new head
+        # Step 3: Return the new head
         return dummy.next
