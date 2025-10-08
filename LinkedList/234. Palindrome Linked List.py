@@ -36,10 +36,9 @@ class Solution:
 
         # Step 3: compare first half and reversed second half
         left, right = head, prev
-        while right:  # only need to check second half
-            if left.val != right.val:   ### TODO 1: mismatch → return False
+        while right:  
+            if left.val != right.val:  
                 return False
-            left = left.next            ### TODO 2: move left forward
-            right = right.next          ### TODO 3: move right forward
-
+            left = left.next           
+            right = right.next          
         return True
