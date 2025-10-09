@@ -19,7 +19,6 @@ class MyStack:
         
 
     def top(self) -> int:
-        # TODO 5: Return (not remove) the front element of the queue
         return self.q[0]
         
 
