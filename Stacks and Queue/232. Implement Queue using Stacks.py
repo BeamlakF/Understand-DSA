@@ -3,27 +3,25 @@ class MyQueue:
         self.stack_in = []
         self.stack_out = []
         
+        
 
     def push(self, x: int) -> None:
-        return self.stack_in.append(x)
-       
+        self.stack_in.append(x)
+
+        
 
     def pop(self) -> int:
-        if not self.stack.out:
-            self.stack_out = self.stack_in[::-1]
-
-            return self.stack_out.pop()
-    
+        if not self.stack_out:
+            while self.stack_in:
+                self.stack_out.append(self.stack_in.pop())
+        return self.stack_out.pop()
         
 
     def peek(self) -> int:
-         if not self.stack.out:
-            self.stack_out = self.stack_in[::-1]
-
-            return self.stack_out.top()
-        
+        if not self.stack_out:
+            while self.stack_in:
+                self.stack_out.append(self.stack_in.pop())
+        return self.stack_out[-1]
 
     def empty(self) -> bool:
-        if not self.stack_in and self.stack_out:
-            return True
-        
+       return not self.stack_in and not self.stack_out
