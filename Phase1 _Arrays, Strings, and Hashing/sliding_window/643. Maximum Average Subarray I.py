@@ -23,22 +23,21 @@ if __name__ == "__main__":
 # The above is Brute force approach and results in time limit exceeded for large inputs on Leetcode
 
 
-class Solution:
-    def findMaxAverage(self, nums: list[int], k: int) -> float:
-        max_sum = float('-inf')
+from typing import List
 
-        # Loop through all subarrays of length k
-        for i in range(len(nums) - k + 1):
-            current_sum = 0
-            # Sum the elements in the window
-            for j in range(i, i + k):
-                current_sum += nums[j]
+class Solution:
+    def findMaxAverage(self, nums: List[int], k: int) -> float:
+        # Initial window sum
+        current_sum = sum(nums[:k])
+        max_sum = current_sum
+
+        for i in range(k, len(nums)):
+            current_sum = current_sum - nums[i - k] + nums[i]
             max_sum = max(max_sum, current_sum)
 
-        # Return the maximum average
         return max_sum / k
 
-# 🔹 Example test
+# Example test (works locally)
 if __name__ == "__main__":
     sol = Solution()
     nums = [1, 12, -5, -6, 50, 3]
