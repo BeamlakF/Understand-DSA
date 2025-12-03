@@ -20,6 +20,7 @@ if __name__ == "__main__":
 class Solution:
     def containsNearbyDuplicate(self, nums: list[int], k: int) -> bool:
         window = set()
+        j =0
         
         for i in range(len(nums)):
             if nums[i] in window:
@@ -27,15 +28,7 @@ class Solution:
             window.add(nums[i])
             # Keep the window size at most k
             if len(window) > k:
-                window.remove(nums[i - k])
+                window.remove(nums[j])
         
         return False
 
-# 🔹 Example test
-if __name__ == "__main__":
-    sol = Solution()
-    nums = [1, 2, 3, 1]
-    k = 3
-    print(sol.containsNearbyDuplicate(nums, k))  # Output: True
-    
-# The above is Optimal approach using Sliding Window technique
