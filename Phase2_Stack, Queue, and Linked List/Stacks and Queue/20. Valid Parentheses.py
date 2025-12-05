@@ -23,6 +23,20 @@ class Solution:
         else:
             return False
             
-            
+#Brute force
+class Solution:
+    def isValid(self, s: str) -> bool:
+        old_string = None
+
+        while old_string != s:
+            old_string = s
+            s = s.replace("()", "")
+            s = s.replace("{}", "")
+            s = s.replace("[]", "")
+           
+        if len(s) == 0:
+            return True
+        else:
+            return False
 
             
